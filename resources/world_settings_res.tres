@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="WorldSettings" load_steps=2 format=3 uid="uid://cj6q43yqspj3t"]
+
+[ext_resource type="Script" uid="uid://ctniwaaacs1n" path="res://resources/world_settings.gd" id="1_mau04"]
+
+[resource]
+script = ExtResource("1_mau04")
+meter = 1.0
+gravity = -9.81
+walk_speed = null
+run_speed = null
+jump_speed = null
+jump_height = 1.0
+jump_time = 0.5
+jump_velocity = 0.0
+metadata/_custom_type_script = "uid://ctniwaaacs1n"
