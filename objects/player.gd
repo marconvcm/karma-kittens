@@ -7,3 +7,4 @@ class_name Player extends Actor
 func get_direction() -> Vector3:
    var direction = current_controller.get_axis()
    return Vector3(direction.x, 0, direction.y)
+
