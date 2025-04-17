@@ -37,7 +37,7 @@ transform = Transform3D(0.707107, -0.5, -0.5, 0, -0.707107, 0.707107, -0.707107,
 [node name="Actor" parent="." instance=ExtResource("1_80vhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05756, 3.23895)
 
-[node name="Player" parent="." instance=ExtResource("2_hjsbj")]
+[node name="Player1" parent="." instance=ExtResource("2_hjsbj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37454, 1.05756, 0)
 
 [node name="Player2" parent="." instance=ExtResource("2_hjsbj")]
@@ -47,12 +47,13 @@ player_index = 1
 [node name="Mesh" parent="Player2" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_safpt")
 
-[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+[node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target1", "target2")]
 transform = Transform3D(-1, -7.54979e-08, 1.30766e-07, 0, 0.866025, 0.5, -1.50996e-07, 0.5, -0.866025, 0, 14, -20)
 fov = 30.0
 near = 0.02
 script = ExtResource("3_5mrsh")
-target = NodePath("../Player")
+target1 = NodePath("../Player1")
+target2 = NodePath("../Player2")
 
 [node name="Floor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16232, 0)

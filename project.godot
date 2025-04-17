@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GlobalInputControllerManager="*res://common/input_controller_manager.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=800
+
 [input]
 
 "player_[0]_up"={
