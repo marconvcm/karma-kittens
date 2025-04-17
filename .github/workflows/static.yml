@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Godot build and deploy
 
 on:
   # Runs on pushes targeting the default branch
@@ -31,7 +31,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-22.04  # Use 22.04 with godot 4
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:4.4.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
