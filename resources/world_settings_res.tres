@@ -5,11 +5,6 @@
 [resource]
 script = ExtResource("1_mau04")
 meter = 1.0
-gravity = -9.81
-walk_speed = null
-run_speed = null
-jump_speed = null
-jump_height = 1.0
-jump_time = 0.5
-jump_velocity = 0.0
+gravity = -30.0
+floor_y = 0.0
 metadata/_custom_type_script = "uid://ctniwaaacs1n"
