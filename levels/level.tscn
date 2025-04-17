@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g5n2inrtgni"]
+[gd_scene load_steps=12 format=3 uid="uid://g5n2inrtgni"]
 
 [ext_resource type="PackedScene" uid="uid://dfevs86r2jaem" path="res://objects/actor.tscn" id="1_80vhd"]
 [ext_resource type="PackedScene" uid="uid://bsklmh4tksjcr" path="res://objects/player.tscn" id="2_hjsbj"]
@@ -7,12 +7,24 @@
 
 [sub_resource type="Environment" id="Environment_80vhd"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_safpt"]
+albedo_color = Color(0.374824, 0.765082, 0.958003, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_hjsbj"]
 size = Vector3(20, 1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mrsh"]
 albedo_texture = ExtResource("3_cwqvt")
 uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_5mrsh"]
+size = Vector3(5, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_safpt"]
+size = Vector3(3, 5, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mrsh"]
+font_size = 24
 
 [node name="Level" type="Node3D"]
 
@@ -23,22 +35,67 @@ environment = SubResource("Environment_80vhd")
 transform = Transform3D(0.707107, -0.5, -0.5, 0, -0.707107, 0.707107, -0.707107, -0.5, -0.5, 0, 8.73753, 0)
 
 [node name="Actor" parent="." instance=ExtResource("1_80vhd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.23895)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05756, 3.23895)
 
 [node name="Player" parent="." instance=ExtResource("2_hjsbj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37454, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37454, 1.05756, 0)
+
+[node name="Player2" parent="." instance=ExtResource("2_hjsbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37454, 1.05756, 3.91284)
+player_index = 1
+
+[node name="Mesh" parent="Player2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_safpt")
 
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0, 14, -20)
+transform = Transform3D(-1, -7.54979e-08, 1.30766e-07, 0, 0.866025, 0.5, -1.50996e-07, 0.5, -0.866025, 0, 14, -20)
 fov = 30.0
 near = 0.02
 script = ExtResource("3_5mrsh")
 target = NodePath("../Player")
 
 [node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16232, 0)
 
 [node name="Floor1" type="CSGMesh3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0324114, -3.57275, -0.0208023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0324114, -1.62837, -0.0208023)
 use_collision = true
 mesh = SubResource("BoxMesh_hjsbj")
 material = SubResource("StandardMaterial3D_5mrsh")
+
+[node name="Box" type="CSGMesh3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05276, -0.650642, -0.0208023)
+use_collision = true
+mesh = SubResource("BoxMesh_5mrsh")
+material = SubResource("StandardMaterial3D_5mrsh")
+
+[node name="Box2" type="CSGMesh3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05276, -0.650642, -5.26282)
+use_collision = true
+mesh = SubResource("BoxMesh_safpt")
+material = SubResource("StandardMaterial3D_5mrsh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Player 1
+Move: AWSD
+Jump: C"
+label_settings = SubResource("LabelSettings_5mrsh")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -291.0
+offset_bottom = 207.0
+grow_horizontal = 0
+text = "Player 2
+Move: Arrows
+Jump: /"
+label_settings = SubResource("LabelSettings_5mrsh")
+horizontal_alignment = 2
+
+[editable path="Player2"]
