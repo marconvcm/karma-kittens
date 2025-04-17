@@ -23,5 +23,4 @@ shape = SubResource("ConvexPolygonShape3D_0bejo")
 [node name="Label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51615, 0)
 billboard = 1
-modulate = Color(1, 0, 1, 1)
 text = "LABEL"

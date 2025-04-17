@@ -73,6 +73,12 @@ use_collision = true
 mesh = SubResource("BoxMesh_5mrsh")
 material = SubResource("StandardMaterial3D_5mrsh")
 
+[node name="Box3" type="CSGMesh3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.67409, 0.482067, 8.72013)
+use_collision = true
+mesh = SubResource("BoxMesh_5mrsh")
+material = SubResource("StandardMaterial3D_5mrsh")
+
 [node name="Box2" type="CSGMesh3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05276, -0.650642, -5.26282)
 use_collision = true
