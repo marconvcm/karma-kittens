@@ -53,7 +53,7 @@ func get_axis() -> Vector2:
 func get_strength(action: String) -> float:
     return _get_action_strength(action)
 
-func is_action_pressed(key: Keys) -> bool:
+func is_key_pressed(key: Keys) -> bool:
     match key:
         Keys.ACTION_0:
             return _is_action_pressed("action_0")
@@ -64,3 +64,12 @@ func is_action_pressed(key: Keys) -> bool:
         Keys.ACTION_3:
             return _is_action_pressed("action_3")
     return false
+
+func is_action_pressed(action: String) -> bool:
+    return _is_action_pressed(action)
+
+func is_action_just_pressed(action: String) -> bool:
+    return _is_action_just_pressed(action)
+
+func is_action_just_released(action: String) -> bool:
+    return _is_action_just_released(action)
