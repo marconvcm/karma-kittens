@@ -11,7 +11,7 @@ var camera_rotation: float = 0.0
 
 @export var world_settings: WorldSettings
 ## Jump impulse
-@export var jump_initial_impulse:float = 12.0
+@export var jump_initial_impulse:float = 16.0
 ## Jump impulse when player keeps pressing jump
 @export var jump_additional_force:float = 4.5
 ## Movement acceleration (how fast character achieve maximum speed)
@@ -75,7 +75,8 @@ func _orient_character_to_direction(direction: Vector3, delta: float) -> void:
 func _push_away_rigid_bodies():
    for i in get_slide_collision_count():
       var c := get_slide_collision(i)
-      if c.get_collider() is RigidBody3D:
+      var collider = c.get_collider()
+      if collider is RigidBody3D:
          var push_dir = -c.get_normal()
          # How much velocity the object needs to increase to match player velocity in the push direction
          var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - c.get_collider().linear_velocity.dot(push_dir)

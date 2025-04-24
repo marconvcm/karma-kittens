@@ -40,7 +40,6 @@ func before_move(delta: float) -> void:
    
    var direction = get_direction() 
    var is_grabbing = current_controller.is_key_pressed(InputController.Keys.ACTION_1)
-   if is_grabbing: print(nearbyInteracts.size())
    
    if is_grabbing and nearbyInteracts.size() > 0:
       for obj:Node3D in nearbyInteracts:
